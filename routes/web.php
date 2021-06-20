@@ -5,29 +5,46 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Documentation\Api;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\Settings\LanguagesController;
 use App\Http\Controllers\TestController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::get('/', function () { return view('home'); });
+//Route::redirect('/', '/' . app()->getLocale() );
 
+//ADDING THE LANGUAGES PREFIX AFETER EACH ROUTE
+Route::group(['prefix' => '{language}'], function () {
 
-Route::get('login', [LoginController::class,'showLoginForm'])->name('login');
+	Route::get('/', [LoginController::class,'index'])->name("login");
+	Route::get('/logout', [LoginController::class,'logout'])->name("logout");
+
+    Route::get('/languagesIndex', [LanguagesController::class, 'languages'])->name('languagesIndex');
+	Route::get('/selectLanguage', [LanguagesController::class, 'selectLanguage'])->name('selectLanguage');
+	Route::get('/passwordforgot', [ForgotPasswordController::class, 'index'])->name('passwordforgot');
+
+	Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+	Route::get('test', [TestController::class,'test']);
+	Route::get('test2', [TestController::class,'test2']);
+
+	//Documentation ===========================================
+	Route::get('/doc/api', [Api::class, 'index'])->name("doc.api");
+
+});
+
 Route::post('login', [LoginController::class,'login']);
+
+
+
+//Route::get('/', function () { return view('home'); });
+
+
+//Route::get('login', [LoginController::class,'showLoginForm'])->name('login');
+
 Route::post('register', [RegisterController::class,'register']);
-Route::get('test', [TestController::class,'test']);
 
 Route::get('password/forget',  function () { return view('pages.forgot-password'); })->name('password.forget');
 Route::post('password/email', [ForgotPasswordController::class,'sendResetLinkEmail'])->name('password.email');
@@ -37,13 +54,13 @@ Route::post('password/reset', [ResetPasswordController::class,'reset'])->name('p
 
 Route::group(['middleware' => 'auth'], function(){
 	// logout route
-	Route::get('/logout', [LoginController::class,'logout']);
+	
 	Route::get('/clear-cache', [HomeController::class,'clearCache']);
 
 	// dashboard route
-	Route::get('/dashboard', function () {
+	/*Route::get('/dashboard', function () {
 		return view('pages.dashboard');
-	})->name('dashboard');
+	})->name('dashboard');*/
 
 	//only those have manage_user permission will get access
 	Route::group(['middleware' => 'can:manage_user'], function(){
@@ -84,8 +101,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/permission-example', function () {
     	return view('permission-example');
     });
-    // API Documentation
-    Route::get('/rest-api', function () { return view('api'); });
+    
     // Editable Datatable
 	Route::get('/table-datatable-edit', function () {
 		return view('pages.datatable-editable');

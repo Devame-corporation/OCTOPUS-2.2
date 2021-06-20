@@ -1,0 +1,20 @@
+{
+    "Login": "تسجيل الدخول",
+    "Languages": "اللغات",
+    "Sign In to your account": "تسجيل الدخول إلى حسابك",
+    "These credentials do not match our records.": "هذه المعلومات لاتطابق أي بيانات",
+    "Username": "اسم المستخدم",
+    "Password": "كلمه السر",
+    "Forgot password ?": "هل نسيت كلمة السر ؟",
+    "All rights reserved OCTOPUS HYPERVISOR": "جميع الحقوق محفوظة OCTOPUS HYPERVISOR",
+    "The email field is required.": "مطلوب البريد الإلكتروني.",
+    "The password field is required.": "مطلوب كلمة المرور.",
+    "Select your language": "اختر لغتك",
+    "For security reasons, this function is disabled, try to contact the super administrator.": "لأسباب أمنية ، تم تعطيل هذه الوظيفة ، حاول الاتصال بالمسؤول المتميز.",
+    "Settings": "إعدادات",
+    "Dashboard": "لوحة المراقبة",
+    "General status": "الحالة العامة",
+    "Actions status": "حالة الإجراءات",
+    "Servers status": "حالة الخوادم",
+    "Documentation": "توثيق"
+}

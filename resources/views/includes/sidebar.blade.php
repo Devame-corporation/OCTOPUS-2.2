@@ -19,7 +19,7 @@
                 <li class=""><a href="#index1" class="active" data-toggle="tab"><i class="fa fa-home fs-17"></i></a></li>
                 <li><a href="#index2" data-toggle="tab"><i class="fa fa-envelope fs-17"></i></a></li>
                 <li><a href="#index3" data-toggle="tab"><i class="fa fa-user fs-17"></i></a></li>
-                <li><a href="login.html" title="logout"><i class="fa fa-power-off fs-17"></i></a></li>
+                <li><a href="{{ route("logout", app()->getLocale()) }}" title="logout"><i class="fa fa-power-off fs-17"></i></a></li>
             </ul>
         </div>
     </div>
@@ -29,7 +29,10 @@
                 <div class="row row-demo-list">
                     <div id="parentVerticalTab" class="col-md-12">
                         <ul class="resp-tabs-list hor_1">
-                            <li><i class="side-menu__icon typcn typcn-device-desktop"></i></li>
+                            <li class="resp-tab-active active"><i class="side-menu__icon typcn typcn-device-desktop"></i></li>
+                            <li><i class="side-menu__icon typcn typcn-cog-outline"></i></li>
+                            <li><i class="side-menu__icon fa fa-book"></i></li>
+                            <!--
                             <li><i class="side-menu__icon typcn typcn-th-large-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-arrow-move-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-chart-pie-outline"></i></li>
@@ -39,126 +42,39 @@
                             <li><i class="side-menu__icon typcn typcn-point-of-interest-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-calendar-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-clipboard"></i></li>
-                            <li class="resp-tab-active active"><i class="side-menu__icon typcn typcn-cog-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-shopping-cart"></i></li>
                             <li><i class="side-menu__icon typcn typcn-download-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-info-outline"></i></li>
+                            -->
                         </ul>
                         <div class="resp-tabs-container hor_1">
-                            <div>
+                            <div class="resp-tab-content-active">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4 class="font-weight-semibold">Home</h4>
-                                        <a class="slide-item" href="index.html">Dashboard 01</a>
-                                        <a class="slide-item" href="index2.html">Dashboard 02 </a>
-                                        <a class="slide-item" href="index3.html">Dashboard 03</a>
-                                        <a class="slide-item" href="index4.html">Dashboard 04</a>
-                                        <a class="slide-item" href="index5.html">Dashboard 05</a>
-                                        <h4 class="font-weight-semibold mt-5 mb-4">Project Status</h4>
-                                        <div class="mb-4">
-                                            <p class="mb-2">Project 1<span class="float-right text-default">85%</span></p>
-                                            <div class="progress progress-sm mb-3 h-1">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success w-85"></div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-4">
-                                            <p class="mb-2">Project 2<span class="float-right text-default">65%</span></p>
-                                            <div class="progress progress-sm mb-3 h-1">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-primary w-65"></div>
-                                            </div>
-                                        </div>
-                                        <div class="mb-4">
-                                            <p class="mb-2">Project 3<span class="float-right text-default">30%</span></p>
-                                            <div class="progress progress-sm mb-3 h-1">
-                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger w-30"></div>
-                                            </div>
-                                        </div>
-                                        <h4 class="font-weight-semibold mt-6">Optional Submenus</h4>
-                                        <div class="side-menu p-0">
-                                            <div class="slide submenu">
-                                                <a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Submenu 1</span><i class="angle fa fa-angle-down"></i></a>
-                                                <ul class="slide-menu submenu-list">
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 1.1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 1.2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 1.3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 1.4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 1.5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="slide submenu">
-                                                <a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Submenu 2</span><i class="angle fa fa-angle-down"></i></a>
-                                                <ul class="slide-menu submenu-list">
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 2.1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 2.2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 2.3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 2.4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 2.5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <a href="#" class="slide-item">Submenu 3</a>
-                                            <div class="slide submenu">
-                                                <a class="side-menu__item" data-toggle="slide" href="#"><span class="side-menu__label">Submenu 4</span><i class="angle fa fa-angle-down"></i></a>
-                                                <ul class="slide-menu submenu-list">
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 4.1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 4.2</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 4.3</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 4.4</a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="slide-item">Sub menu 4.5</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <h4 class="font-weight-semibold">{{ __("Dashboard") }}</h4>
+                                        <a class="slide-item" href="#"><span class="fa fa-map-o"></span> &nbsp;&nbsp;{{ __("General status") }}</a>
+                                        <a class="slide-item" href="#"><span class="fa fa-list-alt"></span> &nbsp;&nbsp;{{ __("Actions status") }}</a>
+                                        <a class="slide-item" href="#"><span class="fa fa-desktop"></span> &nbsp;&nbsp;{{ __("Servers status") }}</a>
                                     </div>
                                 </div>
                             </div>
                             <div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <h4 class="font-weight-semibold">Apps</h4>
-                                        <a href="cards.html" class="slide-item">Cards design</a>
-                                        <a href="cards-image.html" class="slide-item">Image  Cards design</a>
-                                        <a href="chat.html" class="slide-item">Default Chat</a>
-                                        <a href="notify.html" class="slide-item">Notifications</a>
-                                        <a href="sweetalert.html" class="slide-item">Sweet alerts</a>
-                                        <a href="rangeslider.html" class="slide-item">Range slider</a>
-                                        <a href="scroll.html" class="slide-item">Content Scroll bar</a>
-                                        <a href="counters.html" class="slide-item">Counters</a>
-                                        <a href="loaders.html" class="slide-item">Loaders</a>
-                                        <a href="time-line.html" class="slide-item">Time Line</a>
-                                        <a href="rating.html" class="slide-item">Rating </a>
-                                        <a href="#" class="btn btn-primary mt-3 btn-block"><i class="fe fe-plus mr-1 mt-1"></i> Add New</a>
+                                        <h4 class="font-weight-semibold">{{ __("Settings") }}</h4>
+                                        <a href="#" class="slide-item"><span class="fa fa-language"></span> &nbsp;&nbsp;{{ __("Languages") }}</a>
                                     </div>
                                 </div>
                             </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4 class="font-weight-semibold">{{ __("Documentation") }}</h4>
+                                        <a href="{{ route("doc.api", app()->getLocale()) }}" class="slide-item"><span class="fa fa-language"></span> &nbsp;&nbsp;API</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--
                             <div>
                                 <div class="row">
                                     <div class="col-md-12">
@@ -278,7 +194,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="resp-tab-content-active">
+                            <div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4 class="font-weight-semibold">Pages</h4>
@@ -337,6 +253,7 @@
                                     </div>
                                 </div>
                             </div>
+                        -->
                         </div>
                     </div>
                 </div><!-- col-4 -->

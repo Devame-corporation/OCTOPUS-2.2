@@ -1,0 +1,20 @@
+{
+    "Login": "Se connecter",
+    "Languages": "Langues",
+    "Sign In to your account": "Connectez-vous à votre compte",
+    "These credentials do not match our records.": "Ces informations d'identification ne correspondent pas à nos dossiers.",
+    "Username": "Nom d'tulisateur",
+    "Password": "Mot de passe",
+    "Forgot password ?": "Mot de passe oublié ?",
+    "All rights reserved OCTOPUS HYPERVISOR": "Tous droits réservés OCTOPUS HYPERVISOR",
+    "The email field is required.": "Le champ e-mail est obligatoire.",
+    "The password field is required.": "Le champ mot de passe est obligatoire.",
+    "Select your language": "Sélectionnez votre langue",
+    "For security reasons, this function is disabled, try to contact the super administrator.": "Pour des raisons de sécurité, cette fonction est désactivée, essayez de contacter le super administrateur.",
+    "Settings": "Paramètres",
+    "Dashboard": "Tableau de bord",
+    "General status": "Etat général",
+    "Actions status": "Etat des actions",
+    "Servers status": "Etat des serveurs",
+    "Documentation": "Documentation"
+}

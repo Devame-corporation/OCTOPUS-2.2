@@ -2,8 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- Favicon -->
-<link rel="icon" href="{{ asset("assets/images/brand/favicon.ico") }}" type="image/x-icon" />
-<link rel="shortcut icon" type="image/x-icon" href="{{ asset("assets/images/brand/favicon.ico") }}" />
+<link rel="icon" href="{{ asset("assets/images/brand/favicon.png") }}" type="image/icon" />
 <!--Bootstrap.min css-->
 <link rel="stylesheet" href="{{ asset("assets/plugins/bootstrap/css/bootstrap.min.css") }}">
 <!-- Dashboard css -->

@@ -1,6 +1,6 @@
 <div class="app-sidebar colored">
     <div class="sidebar-header">
-        <a class="header-brand" href="{{route('dashboard')}}">
+        <a class="header-brand" href="{{route('dashboard', app()->getLocale())}}">
             <div class="logo-img">
                <img height="45" src="{{ asset('img/horizontal-logo.svg')}}" class="header-brand-img" title="RADMIN">
             </div>
@@ -18,7 +18,7 @@
         <div class="nav-container">
             <nav id="main-menu-navigation" class="navigation-main">
                 <div class="nav-item {{ ($segment1 == 'dashboard') ? 'active' : '' }}">
-                    <a href="{{route('dashboard')}}"><i class="ik ik-bar-chart-2"></i><span>{{ __('Dashboard')}}</span></a>
+                    <a href="{{route('dashboard', app()->getLocale())}}"><i class="ik ik-bar-chart-2"></i><span>{{ __('Dashboard')}}</span></a>
                 </div>
                 <div class="nav-item {{ ($segment1 == 'users' || $segment1 == 'roles'||$segment1 == 'permission' ||$segment1 == 'user') ? 'active open' : '' }} has-sub">
                     <a href="#"><i class="ik ik-user"></i><span>{{ __('Adminstrator')}}</span></a>

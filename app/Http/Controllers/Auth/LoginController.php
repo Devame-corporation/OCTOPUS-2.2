@@ -36,7 +36,11 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('guest')->except('logout');
+     //   $this->middleware('guest')->except('logout');
+    }
+
+    public function index(){
+        return view("auth.login");
     }
 
     // custom logout function
@@ -52,9 +56,6 @@ class LoginController extends Controller
         if ($response = $this->loggedOut($request)) {
             return $response;
         }
-
-        return $request->wantsJson()
-            ? new Response('', 204)
-            : redirect('/login');
+        return $request->wantsJson() ? new Response('', 204) : redirect()->route('login', $request->language);
     }
 }

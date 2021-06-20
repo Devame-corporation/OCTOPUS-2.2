@@ -2,9 +2,9 @@
 <div class="app-header header d-flex">
     <div class="container-fluid">
         <div class="d-flex">
-            <a class="header-brand" href="index.html">
-                <img src="{{ asset("assets/images/brand/logo1.png") }}" class="header-brand-img main-logo" alt="Hogo logo">
-                <img src="{{ asset("assets/images/brand/icon.png") }}" class="header-brand-img icon-logo" alt="Hogo logo">
+            <a class="header-brand" href="{{ route("dashboard", app()->getLocale()) }}">
+                <img src="{{ asset("assets/images/brand/horizontal-logo.svg") }}" class="header-brand-img main-logo">
+                <img src="{{ asset("assets/images/brand/octopus-icon.svg") }}" class="header-brand-img icon-logo">
             </a><!-- logo-->
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
             <a href="#" data-toggle="search" class="nav-link nav-link  navsearch"><i class="fa fa-search"></i></a><!-- search icon -->
@@ -16,6 +16,7 @@
                     </div>
                 </form><!-- search-bar -->
             </div>
+            <!--
             <ul class="nav navbar-nav horizontal-nav header-nav">
                 <li class="mega-dropdown nav-item">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -102,18 +103,14 @@
                     </ul>
                 </li>
             </ul>
+        -->
             <ul class="nav header-nav">
                 <li class="nav-item dropdown header-option m-2">
                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                        <i class="fe fe-settings mr-2"></i>Settings
+                        <i class="fe fe-settings mr-2"></i>{{ __("Settings") }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-left">
-                        <a class="dropdown-item" href="#">Option 1</a>
-                        <a class="dropdown-item" href="#">Option 2</a>
-                        <a class="dropdown-item" href="#">Option 3</a>
-                        <a class="dropdown-item" href="#">Option 4</a>
-                        <a class="dropdown-item" href="#">Option 5</a>
-
+                        <a class="dropdown-item" href="#"><span class="fa fa-language"></span> {{ __("Languages") }}</a>
                     </div>
                 </li>
             </ul>
@@ -129,6 +126,7 @@
                         <span class="pulse bg-success"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
+                        <!--
                         <a href="#" class="dropdown-item text-center">4 New Notifications</a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item d-flex pb-3">
@@ -169,19 +167,20 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item text-center">View all Notifications</a>
+                    -->
                     </div>
                 </div><!-- notifications -->
                 <div class="dropdown header-user">
                     <a class="nav-link leading-none siderbar-link"  data-toggle="sidebar-right" data-target=".sidebar-right">
                         <span class="mr-3 d-none d-lg-block ">
-                            <span class="text-gray-white"><span class="ml-2">Alison</span></span>
+                            <span class="text-gray-white"><span class="ml-2">{{ Auth::user()->name }}</span></span>
                         </span>
                         <span class="avatar avatar-md brround"><img src="{{ asset("assets/images/users/female/33.png") }}" alt="Profile-img" class="avatar avatar-md brround"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         <div class="header-user text-center mt-4 pb-4">
                             <span class="avatar avatar-xxl brround"><img src="{{ asset("assets/images/users/female/33.png") }}" alt="Profile-img" class="avatar avatar-xxl brround"></span>
-                            <a href="#" class="dropdown-item text-center font-weight-semibold user h3 mb-0">Alison</a>
+                            <a href="#" class="dropdown-item text-center font-weight-semibold user h3 mb-0">{{ Auth::user()->name }}</a>
                             <small>Web Designer</small>
                         </div>
                         <a class="dropdown-item" href="#">
