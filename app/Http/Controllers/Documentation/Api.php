@@ -9,6 +9,6 @@ use Auth;
 class Api extends Controller
 {
     public function index(){
-        return view("documentation.api");
+        return view("documentation.api")->with("currentModule", "documentation");
     }
 }

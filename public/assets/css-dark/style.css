@@ -3358,8 +3358,8 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
     color: #fff;
-    background-color: #9258f1;
-    border-color: #9258f1;
+    background-color: #00a6cb;
+    border-color: #00a6cb;
 }
 
 .btn-secondary:hover {
@@ -3376,16 +3376,16 @@ fieldset:disabled a.btn {
 .btn-secondary.disabled,
 .btn-secondary:disabled {
     color: #fff;
-    background-color: #9258f1;
-    border-color: #9258f1;
+    background-color: #00a6cb;
+    border-color: #00a6cb;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active,
 .btn-secondary:not(:disabled):not(.disabled).active,
 .show>.btn-secondary.dropdown-toggle {
     color: #fff;
-    background-color: #9258f1;
-    border-color: #9258f1;
+    background-color: #00a6cb;
+    border-color: #00a6cb;
 }
 
 .btn-secondary:not(:disabled):not(.disabled):active:focus,
@@ -11847,7 +11847,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-    background-color: #9258f1 !important;
+    background-color: #00a6cb !important;
 }
 
 a.bg-secondary:hover,
@@ -11953,7 +11953,7 @@ button.bg-dark:focus {
 }
 
 .bg-gradient-primary {
-    background: linear-gradient(to bottom right, #1753fc, #9258f1);
+    background: linear-gradient(to bottom right, #1753fc, #00a6cb);
 }
 
 .bg-gradient-secondary {
@@ -15713,7 +15713,7 @@ a.text-primary:focus {
 }
 
 .text-secondary {
-    color: #9258f1!important;
+    color: #00a6cb!important;
 }
 
 a.text-secondary:hover,
@@ -21724,7 +21724,7 @@ a.card-tabs-item.active {
     position: absolute;
     top: calc(18px + 5px + 15px / 1.5);
     padding: 0.2em 0.4em;
-    background: #9258f1;
+    background: #00a6cb;
     color: #fff;
     font-size: 0.9em;
     white-space: nowrap;
@@ -21735,7 +21735,7 @@ a.card-tabs-item.active {
 .jsr_label--minmax {
     z-index: 1;
     color: #fff;
-    background: #9258f1;
+    background: #00a6cb;
     transition: opacity 0.2s ease-in-out;
 }
 
@@ -22545,7 +22545,7 @@ a.card-tabs-item.active {
 }
 
 .breadcrumb-item a {
-    color: #9258f1;
+    color: #00a6cb;
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
@@ -31116,7 +31116,7 @@ div[data-acc-step]:not(.open) .badge-primary {
 .card-bgimg:before {
     opacity: 0.9;
     border-radius: 7px;
-    background: linear-gradient(125deg, #1753fc 35%, #9258f1 65%);
+    background: linear-gradient(125deg, #1753fc 35%, #00a6cb 65%);
     content: '';
     position: absolute;
     width: 100%;

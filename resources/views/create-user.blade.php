@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.home')
 @section('title', 'Add User')
 @section('content')
     <!-- push external head elements to head -->
@@ -7,34 +7,28 @@
     @endpush
 
     <div class="container-fluid">
+
     	<div class="page-header">
-            <div class="row align-items-end">
-                <div class="col-lg-8">
-                    <div class="page-header-title">
-                        <i class="ik ik-user-plus bg-blue"></i>
-                        <div class="d-inline">
-                            <h5>{{ __('Add User')}}</h5>
-                            <span>{{ __('Create new user, assign roles & permissions')}}</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <nav class="breadcrumb-container" aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item">
-                                <a href="{{url('dashboard')}}"><i class="ik ik-home"></i></a>
-                            </li>
-                            <li class="breadcrumb-item">
-                                <a href="#">{{ __('Add User')}}</a>
-                            </li>
-                        </ol>
-                    </nav>
+            <ol class="breadcrumb">
+                <!-- breadcrumb -->
+                <li class="breadcrumb-item"><a href="#">{{ __('Settings') }}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ __('Users') }}</li>
+            </ol><!-- End breadcrumb -->
+            <div class="ml-auto">
+                <div class="input-group">
+                    <a href="{{ route("settings.users", app()->getLocale()) }}" class="btn btn-danger text-white" data-toggle="tooltip" title="" data-placement="bottom"
+                        data-original-title="Cancel">
+                        <span>
+                            <i class="fa fa-close"></i>
+                        </span>
+                    </a>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <!-- start message area-->
-            @include('include.message')
+            @include('includes.message')
             <!-- end message area-->
             <div class="col-md-12">
                 <div class="card ">
@@ -42,7 +36,7 @@
                         <h3>{{ __('Add user')}}</h3>
                     </div>
                     <div class="card-body">
-                        <form class="forms-sample" method="POST" action="{{ route('create-user') }}" >
+                        <form class="forms-sample" method="POST" action="{{ route('create-user', app()->getLocale()) }}" >
                         @csrf
                             <div class="row">
                                 <div class="col-sm-6">

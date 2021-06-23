@@ -26,3 +26,4 @@
 <script src="{{ asset("assets/plugins/sidebar/sidebar.js") }}"></script>
 <!-- Custom js-->
 <script src="{{ asset("assets/js-dark/custom.js") }}"></script>
+@stack('script')

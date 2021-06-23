@@ -2,20 +2,22 @@
 <div class="app-header header d-flex">
     <div class="container-fluid">
         <div class="d-flex">
-            <a class="header-brand" href="{{ route("dashboard", app()->getLocale()) }}">
+            <a class="header-brand" href="{{ route("dashboard.general", app()->getLocale()) }}">
                 <img src="{{ asset("assets/images/brand/horizontal-logo.svg") }}" class="header-brand-img main-logo">
                 <img src="{{ asset("assets/images/brand/octopus-icon.svg") }}" class="header-brand-img icon-logo">
             </a><!-- logo-->
             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-toggle="sidebar" href="#"></a>
-            <a href="#" data-toggle="search" class="nav-link nav-link  navsearch"><i class="fa fa-search"></i></a><!-- search icon -->
+            <!--
+            <a href="#" data-toggle="search" class="nav-link nav-link  navsearch"><i class="fa fa-search"></i></a>
             <div class="header-form">
                 <form class="form-inline">
                     <div class="search-element mr-3">
                         <input class="form-control" type="search" placeholder="Search" aria-label="Search">
                         <span class="Search-icon"><i class="fa fa-search"></i></span>
                     </div>
-                </form><!-- search-bar -->
+                </form>
             </div>
+        -->
             <!--
             <ul class="nav navbar-nav horizontal-nav header-nav">
                 <li class="mega-dropdown nav-item">
@@ -110,7 +112,8 @@
                         <i class="fe fe-settings mr-2"></i>{{ __("Settings") }}
                     </a>
                     <div class="dropdown-menu dropdown-menu-left">
-                        <a class="dropdown-item" href="#"><span class="fa fa-language"></span> {{ __("Languages") }}</a>
+                        @can("manage_user")<a class="dropdown-item"  href="{{ route("settings.users", app()->getLocale()) }}" class="slide-item"><span class="fa fa-users"></span> &nbsp;&nbsp;{{ __("Users") }}</a>@endcan
+                        <a class="dropdown-item"  href="{{ route("settings.languages", app()->getLocale()) }}" class="slide-item"><span class="fa fa-language"></span> &nbsp;&nbsp;{{ __("Languages") }}</a>
                     </div>
                 </li>
             </ul>
@@ -119,14 +122,16 @@
                     <a  class="nav-link icon full-screen-link" id="fullscreen-button">
                         <i class="fe fe-maximize-2"></i>
                     </a>
-                </div><!-- full-screen -->
+                </div>
+                <!-- full-screen -->
+                <!--
                 <div class="dropdown header-notify">
                     <a class="nav-link icon" data-toggle="dropdown" aria-expanded="false">
                         <i class="fe fe-bell "></i>
                         <span class="pulse bg-success"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
-                        <!--
+                        
                         <a href="#" class="dropdown-item text-center">4 New Notifications</a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item d-flex pb-3">
@@ -167,19 +172,22 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="#" class="dropdown-item text-center">View all Notifications</a>
-                    -->
+                    
                     </div>
-                </div><!-- notifications -->
+                </div>
+            -->
+                <!-- notifications -->
                 <div class="dropdown header-user">
-                    <a class="nav-link leading-none siderbar-link"  data-toggle="sidebar-right" data-target=".sidebar-right">
+                    <a class="nav-link leading-none siderbar-link" >
                         <span class="mr-3 d-none d-lg-block ">
                             <span class="text-gray-white"><span class="ml-2">{{ Auth::user()->name }}</span></span>
                         </span>
-                        <span class="avatar avatar-md brround"><img src="{{ asset("assets/images/users/female/33.png") }}" alt="Profile-img" class="avatar avatar-md brround"></span>
+                        <span class="avatar avatar-md brround"><img src="{{ asset("assets/images/users/default.png") }}" alt="Profile-img" class="avatar avatar-md brround"></span>
                     </a>
+                    
                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
                         <div class="header-user text-center mt-4 pb-4">
-                            <span class="avatar avatar-xxl brround"><img src="{{ asset("assets/images/users/female/33.png") }}" alt="Profile-img" class="avatar avatar-xxl brround"></span>
+                            <span class="avatar avatar-xxl brround"><img src="{{ asset("assets/images/users/default.png") }}" alt="Profile-img" class="avatar avatar-xxl brround"></span>
                             <a href="#" class="dropdown-item text-center font-weight-semibold user h3 mb-0">{{ Auth::user()->name }}</a>
                             <small>Web Designer</small>
                         </div>
@@ -202,12 +210,23 @@
                             </div>
                         </div>
                     </div>
-                </div><!-- profile -->
+                </div>
+
+                <div class="dropdown">
+                    <a class="nav-link icon" href="{{ route("logout", app()->getLocale()) }}" title="logout">
+                        <i class="fa fa-power-off fs-17"></i>
+                    </a>
+                </div>
+            
+                <!-- profile -->
+                <!--
                 <div class="dropdown">
                     <a  class="nav-link icon siderbar-link" data-toggle="sidebar-right" data-target=".sidebar-right">
                         <i class="fe fe-more-horizontal"></i>
                     </a>
-                </div><!-- Right-siebar-->
+                </div>
+            -->
+                <!-- Right-siebar-->
             </div>
         </div>
     </div>

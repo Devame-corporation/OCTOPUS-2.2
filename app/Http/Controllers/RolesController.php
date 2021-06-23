@@ -29,11 +29,10 @@ class RolesController extends Controller
         try{
             $permissions = Permission::pluck('name','id');
 
-            return view('roles', compact('permissions'));
+            return view('settings.roles', compact('permissions'))->with("currentModule", "settings");
         }catch (\Exception $e) {
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);
-
         }
     }
 
@@ -66,8 +65,8 @@ class RolesController extends Controller
                     }
                     if (Auth::user()->can('manage_roles')){
                         return '<div class="table-actions">
-                                    <a href="'.url('role/edit/'.$data->id).'" ><i class="ik ik-edit-2 f-16 mr-15 text-green"></i></a>
-                                    <a href="'.url('role/delete/'.$data->id).'"  ><i class="ik ik-trash-2 f-16 text-red"></i></a>
+                                    <a href="'.url(app()->getLocale() . '/role/edit/'.$data->id).'" ><i class="fa fa-edit f-16 mr-15 text-green"></i></a>
+                                    <a href="'.url(app()->getLocale() . '/role/delete/'.$data->id).'"  ><i class="fa fa-trash f-16 text-red"></i></a>
                                 </div>';
                     }else{
                         return '';
@@ -98,9 +97,9 @@ class RolesController extends Controller
             $role->syncPermissions($request->permissions);
 
             if($role){ 
-                return redirect('roles')->with('success', 'Role created succesfully!');
+                return redirect()->route('settings.roles', app()->getLocale())->with('success', 'Role created succesfully!');
             }else{
-                return redirect('roles')->with('error', 'Failed to create role! Try again.');
+                return redirect()->route('settings.roles', app()->getLocale())->with('error', 'Failed to create role! Try again.');
             }
         }catch (\Exception $e) {
             $bug = $e->getMessage();
@@ -108,9 +107,11 @@ class RolesController extends Controller
         }
     }
 
-    public function edit($id)
+    public function edit($lng, $id)
     {
+        
         $role  = Role::where('id',$id)->first();
+        //dd("ok");
         // if role exist
         if($role){
             $role_permission = $role->permissions()
@@ -119,16 +120,15 @@ class RolesController extends Controller
 
             $permissions = Permission::pluck('name','id');
 
-            return view('edit-roles', compact('role','role_permission','permissions'));
+            return view('settings.rolesEdit', compact('role','role_permission','permissions'))->with("currentModule", "settings");
         }else{
             return redirect('404');
         }
     }
 
-    public function update(Request $request)
+    public function update($lng, Request $request)
     {
         
-
         // update role
         $validator = Validator::make($request->all(), [
             'role' => 'required',
@@ -149,7 +149,7 @@ class RolesController extends Controller
             // Sync role permissions
             $role->syncPermissions($request->permissions);
 
-            return redirect('roles')->with('success', 'Role info updated succesfully!');
+            return redirect()->route('settings.roles', app()->getLocale())->with('success', 'Role info updated succesfully!')->with("currentModule", "settings");
         }catch (\Exception $e) {
             $bug = $e->getMessage();
             return redirect()->back()->with('error', $bug);

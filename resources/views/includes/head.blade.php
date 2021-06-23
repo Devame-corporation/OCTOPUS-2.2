@@ -21,3 +21,5 @@
 <link href="{{ asset("assets/plugins/iconfonts/plugin.css") }}" rel="stylesheet" />
 <link href="{{ asset("assets/plugins/iconfonts/icons.css") }}" rel="stylesheet" />
 <link href="{{ asset("assets/fonts/fonts/font-awesome.min.css") }}" rel="stylesheet">
+
+@stack('head')

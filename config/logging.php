@@ -36,9 +36,29 @@ return [
 
     'channels' => [
         'stack' => [
+            'name' => 'OCTOPUS Logger',
             'driver' => 'stack',
-            'channels' => ['single'],
-            'ignore_exceptions' => false,
+            'channels' => ['database'],
+        ],
+        'database' => [
+            'driver' => 'custom',
+            'via' => danielme85\LaravelLogToDB\LogToDbHandler::class,
+            //'model' => App\Model\Log::class, //Your own optional custom model
+            'level' => env('APP_LOG_LEVEL', 'debug'),
+            'name' => 'My DB Log',
+            'connection' => 'default',
+            'collection' => 'log',
+            'detailed' => false,
+            'queue' => false,
+            'queue_name' => '',
+            'queue_connection' => '',
+            'max_records' => false,
+            'max_hours' => false,
+            'processors' => [
+                  //Monolog\Processor\HostnameProcessor::class
+                  // ..
+                  "extra"=>"ok"
+             ]
         ],
 
         'single' => [

@@ -48,8 +48,8 @@
                             </form>
                             <div class="card-footer">
                                 <div class="row">
-                                    <div class="col-11 text-muted">&copy; {{ __("All rights reserved OCTOPUS HYPERVISOR") }}</div>
-                                    <div class="col-1"><a href="{{ route("languagesIndex", app()->getLocale()) }}"><span class="fa fa-language" style="font-size: 18px"></span></a></div>
+                                    <div class="col-11 text-muted">&copy; {{ __("All rights reserved OCTOPUS HYPERVISOR") }}-{{ env("APP_VERSION") }}</div>
+                                    <div class="col-1"><a href="{{ route("settings.languages", app()->getLocale()) }}"><span class="fa fa-language" style="font-size: 18px"></span></a></div>
                                 </div>
                             </div>
                         </div>

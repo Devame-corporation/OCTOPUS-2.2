@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -27,7 +29,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = "";
+    //protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -36,7 +39,8 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-     //   $this->middleware('guest')->except('logout');
+        $this->redirectTo = app()->getLocale() . env("APP_HOME_PAGE");
+       //$this->middleware('guest')->except('logout');
     }
 
     public function index(){
@@ -47,7 +51,10 @@ class LoginController extends Controller
     // redirect to login page
     public function logout(Request $request)
     {
+        Log::info(Auth::user()->name . ":Logged out");
         $this->guard()->logout();
+
+        //Log::info(Auth::user()->name . " : logged out");
 
         $request->session()->invalidate();
 
@@ -56,6 +63,7 @@ class LoginController extends Controller
         if ($response = $this->loggedOut($request)) {
             return $response;
         }
+        
         return $request->wantsJson() ? new Response('', 204) : redirect()->route('login', $request->language);
     }
 }

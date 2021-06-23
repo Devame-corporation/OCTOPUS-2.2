@@ -37,7 +37,7 @@
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-11 text-muted">&copy;
-                                        {{ __('All rights reserved OCTOPUS HYPERVISOR') }}</div>
+                                        {{ __('All rights reserved OCTOPUS HYPERVISOR') }}-{{ env("APP_VERSION") }}</div>
                                     <div class="col-1"><a href="{{ route('login', app()->getLocale()) }}"><span
                                                 class="fa fa-user" style="font-size: 18px"></span></a></div>
                                 </div>

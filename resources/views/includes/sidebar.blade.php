@@ -3,11 +3,11 @@
 <aside class="app-sidebar">
     <div class="app-sidebar__user pb-0">
         <div class="user-body">
-            <span class="avatar avatar-xxl brround text-center cover-image" data-image-src="{{ asset("assets/images/users/female/33.png") }}"></span>
+            <span class="avatar avatar-xxl brround text-center cover-image" data-image-src="{{ asset("assets/images/users/default.png") }}"></span>
         </div>
         <div class="user-info">
-            <a href="#" class="ml-2"><span class="text-dark app-sidebar__user-name font-weight-semibold">Jenna Side</span><br>
-                <span class="text-muted app-sidebar__user-name text-sm"> Web Designer</span>
+            <a href="#" class="ml-2"><span class="text-dark app-sidebar__user-name font-weight-semibold">{{ Auth::user()->name }}</span><br>
+                <span class="text-muted app-sidebar__user-name text-sm">{{ Auth::user()->poste }}</span>
             </a>
         </div>
     </div>
@@ -16,9 +16,9 @@
         <div class="tabs-menu ">
             <!-- Tabs -->
             <ul class="nav panel-tabs">
-                <li class=""><a href="#index1" class="active" data-toggle="tab"><i class="fa fa-home fs-17"></i></a></li>
-                <li><a href="#index2" data-toggle="tab"><i class="fa fa-envelope fs-17"></i></a></li>
-                <li><a href="#index3" data-toggle="tab"><i class="fa fa-user fs-17"></i></a></li>
+                <li><a href="#index1" data-toggle="tab"><i class="fa fa-home fs-17"></i></a></li>
+                <!--<li><a href="#index2" data-toggle="tab"><i class="fa fa-envelope fs-17"></i></a></li>-->
+                <!--<li><a href="#index3" data-toggle="tab"><i class="fa fa-user fs-17"></i></a></li>-->
                 <li><a href="{{ route("logout", app()->getLocale()) }}" title="logout"><i class="fa fa-power-off fs-17"></i></a></li>
             </ul>
         </div>
@@ -29,9 +29,11 @@
                 <div class="row row-demo-list">
                     <div id="parentVerticalTab" class="col-md-12">
                         <ul class="resp-tabs-list hor_1">
-                            <li class="resp-tab-active active"><i class="side-menu__icon typcn typcn-device-desktop"></i></li>
-                            <li><i class="side-menu__icon typcn typcn-cog-outline"></i></li>
-                            <li><i class="side-menu__icon fa fa-book"></i></li>
+                            <li @isset($currentModule) @if ($currentModule=='dashboard') class="resp-tab-active active" @endif @endisset><i class="side-menu__icon typcn typcn-device-desktop"></i></li>
+                            <li @isset($currentModule) @if ($currentModule=='settings') class="resp-tab-active active" @endif @endisset><i class="side-menu__icon typcn typcn-cog-outline"></i></li>
+                            @can("Access_documentation")
+                            <li @isset($currentModule) @if ($currentModule=='documentation') class="resp-tab-active active" @endif @endisset><i class="side-menu__icon fa fa-book"></i></li>
+                            @endcan
                             <!--
                             <li><i class="side-menu__icon typcn typcn-th-large-outline"></i></li>
                             <li><i class="side-menu__icon typcn typcn-arrow-move-outline"></i></li>
@@ -48,25 +50,36 @@
                             -->
                         </ul>
                         <div class="resp-tabs-container hor_1">
-                            <div class="resp-tab-content-active">
+                            <div @isset($currentModule) @if ($currentModule=='dashboard')  class="resp-tab-content-active" @endif @endisset>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4 class="font-weight-semibold">{{ __("Dashboard") }}</h4>
-                                        <a class="slide-item" href="#"><span class="fa fa-map-o"></span> &nbsp;&nbsp;{{ __("General status") }}</a>
+                                        <a class="slide-item" href="{{ route("dashboard.general", app()->getLocale()) }}"><span class="fa fa-map-o"></span> &nbsp;&nbsp;{{ __("General status") }}</a>
+                                        <!--
                                         <a class="slide-item" href="#"><span class="fa fa-list-alt"></span> &nbsp;&nbsp;{{ __("Actions status") }}</a>
                                         <a class="slide-item" href="#"><span class="fa fa-desktop"></span> &nbsp;&nbsp;{{ __("Servers status") }}</a>
+                                        -->
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div @isset($currentModule) @if ($currentModule=='settings')  class="resp-tab-content-active" @endif @endisset>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4 class="font-weight-semibold">{{ __("Settings") }}</h4>
-                                        <a href="#" class="slide-item"><span class="fa fa-language"></span> &nbsp;&nbsp;{{ __("Languages") }}</a>
+                                        @can("manage_user")
+                                            <a href="{{ route("settings.users", app()->getLocale()) }}" class="slide-item"><span class="fa fa-users"></span> &nbsp;&nbsp;{{ __("Users") }}</a>
+                                        @endcan
+                                        @can("manage_role")
+                                            <a href="{{ route("settings.roles", app()->getLocale()) }}" class="slide-item"><span class="fa fa-user-md"></span> &nbsp;&nbsp;{{ __("Roles") }}</a>
+                                        @endcan
+                                        @can("manage_permission")
+                                            <a href="{{ route("settings.permissions", app()->getLocale()) }}" class="slide-item"><span class="fa fa-address-card"></span> &nbsp;&nbsp;{{ __("Permissions") }}</a>
+                                        @endcan
+                                        <a href="{{ route("settings.languages", app()->getLocale()) }}" class="slide-item"><span class="fa fa-language"></span> &nbsp;&nbsp;{{ __("Languages") }}</a>
                                     </div>
                                 </div>
                             </div>
-                            <div>
+                            <div @isset($currentModule) @if ($currentModule=='documentation')  class="resp-tab-content-active" @endif @endisset>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4 class="font-weight-semibold">{{ __("Documentation") }}</h4>

@@ -21,6 +21,7 @@
 					</div>
 					@include("includes.sidebarRight")
 					<!--footer-->
+					<!--
 					<footer class="footer">
 						<div class="container">
 							<div class="row align-items-center flex-row-reverse">
@@ -29,7 +30,7 @@
 								</div>
 							</div>
 						</div>
-					</footer>
+					</footer>-->
 					<!-- End Footer-->
 				</div>
 				<!-- End app-content-->
