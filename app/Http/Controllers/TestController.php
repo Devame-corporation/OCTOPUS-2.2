@@ -11,7 +11,6 @@ class TestController extends Controller
     }
 
     public function test2(){
-        //dd( app()->getLocale() );
         return view("test2");
     }
 }
